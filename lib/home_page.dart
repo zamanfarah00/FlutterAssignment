@@ -8,83 +8,145 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("easyTour"),
-        leading: const Icon(Icons.travel_explore),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
-        ],
-        backgroundColor: const Color(0xFF1B4332), 
-        foregroundColor: const Color(0xFFF3EEE1), 
+        title: Text("easyTour"),
+        backgroundColor: const Color.fromARGB(255, 243, 238, 225),
+        foregroundColor: const Color.fromARGB(255, 27, 67, 50),
         titleTextStyle: GoogleFonts.lobster(
-          textStyle: const TextStyle(
+          textStyle: TextStyle(
             fontSize: 30,
-            color: Color(0xFFF3EEE1),
+            color: const Color.fromARGB(255, 27, 67, 50),
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
 
-      backgroundColor: const Color(0xFFF3EEE1), 
-
-      body: Center(
+      drawer: Drawer(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.account_balance_wallet,
-              size: 80,
-              color: Color(0xFF1B4332),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Welcome to easyTour',
-              style: GoogleFonts.lobster(
-                textStyle: const TextStyle(
-                  fontSize: 30,
-                  color: Color(0xFF1B4332),
-                  fontWeight: FontWeight.bold,
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 27, 67, 50),
+              ),
+              accountName: Text("Traveller"),
+              accountEmail: Text("traveller@easytour.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                child: Icon(
+                  Icons.travel_explore,
+                  color: const Color.fromARGB(255, 27, 67, 50),
+                  size: 50,
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            const Text(
-              'No excuses for Tours',
-              style: TextStyle(
-                fontSize: 18,
-                fontStyle: FontStyle.italic,
-                color: Color(0xFFC9A227), // gold
-              ),
+            Divider(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              thickness: 1,
             ),
-            const SizedBox(height: 30),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("HomePage"),
+              onTap: () {},
+              hoverColor: const Color.fromARGB(255, 255, 255, 255),
+            ),
+            Divider(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              thickness: 1,
+            ),
+            ListTile(
+              leading: Icon(Icons.account_balance_wallet),
+              title: Text("Budget"),
+              onTap: () {},
+              hoverColor: const Color.fromARGB(255, 255, 255, 255),
+            ),
+            Divider(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              thickness: 1,
+            ),
+            Spacer(),
+            ListTile(
+              leading: IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+              trailing: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_forward_ios)),
+              title: Text("Settings"),
+              hoverColor: const Color.fromARGB(255, 255, 255, 255),
+            ),
+          ],
+        ),
+      ),
+      endDrawer: Drawer(),
+
+      backgroundColor: const Color.fromARGB(255, 27, 67, 50),
+
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: const Color.fromARGB(255, 27, 67, 50),
+                padding: EdgeInsets.all(16.0),
+                textStyle: GoogleFonts.lobster(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    color: const Color.fromARGB(255, 27, 67, 50),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              child: Text("textButton"),
+            ),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1B4332),
-                foregroundColor: const Color(0xFFF3EEE1),
+                foregroundColor: Colors.white,
+                backgroundColor: const Color.fromARGB(255, 27, 67, 50),
+                padding: EdgeInsets.all(16.0),
+                textStyle: GoogleFonts.lobster(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    color: const Color.fromARGB(255, 27, 67, 50),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-              child: const Text('Plan my tour'),
+              child: Text("ElevatedButton"),
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.all(16.0),
+                foregroundColor: Colors.white,
+                backgroundColor: const Color.fromARGB(255, 27, 67, 50),
+                textStyle: GoogleFonts.lobster(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    color: const Color.fromARGB(255, 27, 67, 50),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              child: Text("OutlinedButton"),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add),
             ),
           ],
         ),
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Add a new tour')),
-          );
-        },
-        backgroundColor: const Color(0xFF1B4332),
-        foregroundColor: const Color(0xFFF3EEE1),
+        onPressed: () {},
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        foregroundColor: const Color.fromARGB(255, 27, 67, 50),
+        hoverColor: const Color.fromARGB(255, 255, 255, 254),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         tooltip: 'Add',
-        child: const Icon(Icons.add),
+        child: Icon(Icons.add),
       ),
     );
   }
 }
-
-
